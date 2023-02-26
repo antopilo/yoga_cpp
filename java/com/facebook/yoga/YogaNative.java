@@ -7,7 +7,7 @@
 
 package com.facebook.yoga;
 
-import com.facebook.proguard.annotations.DoNotStrip;
+import com.facebook.yoga.annotations.DoNotStrip;
 import com.facebook.soloader.SoLoader;
 
 @DoNotStrip
@@ -15,7 +15,7 @@ public class YogaNative {
   static {
     SoLoader.loadLibrary("yoga");
   }
-  
+
   // JNI methods that use Vanilla JNI
   // YGConfig related
   static native long jni_YGConfigNewJNI();
@@ -25,7 +25,6 @@ public class YogaNative {
   static native void jni_YGConfigSetPrintTreeFlagJNI(long nativePointer, boolean enable);
   static native void jni_YGConfigSetPointScaleFactorJNI(long nativePointer, float pixelsInPoint);
   static native void jni_YGConfigSetUseLegacyStretchBehaviourJNI(long nativePointer, boolean useLegacyStretchBehaviour);
-  static native void jni_YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviourJNI(long nativePointer, boolean shouldDiffLayoutWithoutLegacyStretchBehaviour);
   static native void jni_YGConfigSetLoggerJNI(long nativePointer, YogaLogger logger);
 
   // YGNode related
@@ -108,6 +107,8 @@ public class YogaNative {
   static native void jni_YGNodeStyleSetMaxHeightPercentJNI(long nativePointer, float percent);
   static native float jni_YGNodeStyleGetAspectRatioJNI(long nativePointer);
   static native void jni_YGNodeStyleSetAspectRatioJNI(long nativePointer, float aspectRatio);
+  static native float jni_YGNodeStyleGetGapJNI(long nativePointer, int gutter);
+  static native void jni_YGNodeStyleSetGapJNI(long nativePointer, int gutter, float gapLength);
   static native void jni_YGNodeSetHasMeasureFuncJNI(long nativePointer, boolean hasMeasureFunc);
   static native void jni_YGNodeSetHasBaselineFuncJNI(long nativePointer, boolean hasMeasureFunc);
   static native void jni_YGNodePrintJNI(long nativePointer);
